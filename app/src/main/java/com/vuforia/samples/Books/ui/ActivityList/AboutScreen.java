@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import com.vuforia.samples.Books.R;
+import com.vuforia.samples.Books.app.Books.OnBoardingBook;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -95,8 +96,7 @@ public class AboutScreen extends Activity implements OnClickListener
     // Starts the chosen activity
     private void startARActivity()
     {
-        Intent i = new Intent();
-        i.setClassName(mClassToLaunchPackage, mClassToLaunch);
+        Intent i = new Intent(AboutScreen.this, OnBoardingBook.class);
         startActivity(i);
     }
     

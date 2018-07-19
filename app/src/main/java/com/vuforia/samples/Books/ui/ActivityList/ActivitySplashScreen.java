@@ -54,8 +54,6 @@ public class ActivitySplashScreen extends Activity
                 
                 Intent intent = new Intent(ActivitySplashScreen.this,
                     AboutScreen.class);
-                intent.putExtra("ACTIVITY_TO_LAUNCH",
-                    "app.OnBoardingBook.OnBoardingBook");
                 intent.putExtra("ABOUT_TEXT_TITLE", "Books");
                 intent.putExtra("ABOUT_TEXT", "Books/CR_about.html");
                 startActivity(intent);
