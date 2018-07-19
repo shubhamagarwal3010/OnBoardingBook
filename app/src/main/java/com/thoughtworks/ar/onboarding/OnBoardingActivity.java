@@ -115,7 +115,7 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
     // Indicates if the app is currently loading the book data
     private boolean mIsLoadingBookData = false;
     // AsyncTask to get book data from a json object
-    private GetBookDataTask mGetBookDataTask;
+    private GetOnBoardingManualDataTask mGetOnBoardingManualDataTask;
     // Our OpenGL view:
     private SampleApplicationGLView mGlView;
     // Our renderer:
@@ -377,7 +377,7 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
                 if (mIsLoadingBookData) {
 
                     // Cancels the AsyncTask
-                    mGetBookDataTask.cancel(true);
+                    mGetOnBoardingManualDataTask.cancel(true);
                     mIsLoadingBookData = false;
 
                     // Cleans the Target Tracker Id
@@ -569,8 +569,8 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
         }
 
         // Searches for the book data in an AsyncTask
-        mGetBookDataTask = new GetBookDataTask();
-        mGetBookDataTask.execute();
+        mGetOnBoardingManualDataTask = new GetOnBoardingManualDataTask();
+        mGetOnBoardingManualDataTask.execute();
     }
 
     /**
@@ -1110,7 +1110,7 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
     /**
      * Gets the book data from a JSON Object
      */
-    private class GetBookDataTask extends AsyncTask<Void, Void, Void> {
+    private class GetOnBoardingManualDataTask extends AsyncTask<Void, Void, Void> {
         private static final String CHARSET = "UTF-8";
         private String mBookDataJSONFullUrl;
 

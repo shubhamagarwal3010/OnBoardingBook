@@ -15,7 +15,6 @@ import android.graphics.Bitmap;
 // A support class encapsulating the info for one book
 public class Target {
     private String title;
-    private String targetId;
     private Bitmap thumb;
     private String bookUrl;
 
@@ -32,15 +31,6 @@ public class Target {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getTargetId() {
-        return targetId;
-    }
-
-
-    public void setTargetId(String targetId) {
-        this.targetId = targetId;
     }
 
 

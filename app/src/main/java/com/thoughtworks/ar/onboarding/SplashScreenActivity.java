@@ -48,8 +48,8 @@ public class SplashScreenActivity extends Activity {
 
                 Intent intent = new Intent(SplashScreenActivity.this,
                         AboutScreenActivity.class);
-                intent.putExtra("ABOUT_TEXT_TITLE", "Books");
-                intent.putExtra("ABOUT_TEXT", "Books/CR_about.html");
+                intent.putExtra("ABOUT_TEXT_TITLE", "OnBoarding Manual");
+                intent.putExtra("ABOUT_TEXT", "Manual/CR_about.html");
                 startActivity(intent);
 
             }
