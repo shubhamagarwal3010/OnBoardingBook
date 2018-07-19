@@ -16,11 +16,6 @@ import android.graphics.Bitmap;
 public class Book
 {
     private String title;
-    private String author;
-    private String ratingAvg;
-    private String ratingTotal;
-    private String priceList;
-    private String priceYour;
     private String targetId;
     private Bitmap thumb;
     private String bookUrl;
@@ -38,71 +33,9 @@ public class Book
     }
     
     
-    public void setTitle(String title)
-    {
+    public void setTitle(String title) {
         this.title = title;
     }
-    
-    
-    public String getAuthor()
-    {
-        return author;
-    }
-    
-    
-    public void setAuthor(String author)
-    {
-        this.author = author;
-    }
-    
-    
-    public String getRatingAvg()
-    {
-        return ratingAvg;
-    }
-    
-    
-    public void setRatingAvg(String ratingAvg)
-    {
-        this.ratingAvg = ratingAvg;
-    }
-    
-    
-    public String getRatingTotal()
-    {
-        return ratingTotal;
-    }
-    
-    
-    public void setRatingTotal(String ratingTotal)
-    {
-        this.ratingTotal = ratingTotal;
-    }
-    
-    
-    public String getPriceList()
-    {
-        return priceList;
-    }
-    
-    
-    public void setPriceList(String priceList)
-    {
-        this.priceList = priceList;
-    }
-    
-    
-    public String getPriceYour()
-    {
-        return priceYour;
-    }
-    
-    
-    public void setPriceYour(String priceYour)
-    {
-        this.priceYour = priceYour;
-    }
-    
     
     public String getTargetId()
     {

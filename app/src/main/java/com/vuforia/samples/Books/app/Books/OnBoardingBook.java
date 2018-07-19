@@ -802,12 +802,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
                 mBookData = new Book();
 
                 mBookData.setTitle(jsonObject.getString("title"));
-                mBookData.setAuthor(jsonObject.getString("author"));
                 mBookData.setBookUrl(jsonObject.getString("bookurl"));
-                mBookData.setPriceList(jsonObject.getString("list price"));
-                mBookData.setPriceYour(jsonObject.getString("your price"));
-                mBookData.setRatingAvg(jsonObject.getString("average rating"));
-                mBookData.setRatingTotal(jsonObject.getString("# of ratings"));
 
                 // Gets the book thumb image
                 byte[] thumb = downloadImage(jsonObject.getString("thumburl"));
@@ -957,11 +952,6 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     private void updateProductView(BookOverlayView productView, Book book)
     {
         productView.setBookTitle(book.getTitle());
-        productView.setBookPrice(book.getPriceList());
-        productView.setYourPrice(book.getPriceYour());
-        productView.setBookRatingCount(book.getRatingTotal());
-        productView.setRating(book.getRatingAvg());
-        productView.setBookAuthor(book.getAuthor());
         productView.setCoverViewFromBitmap(book.getThumb());
     }
     
