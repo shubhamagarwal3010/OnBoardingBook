@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Books</string>
-    <string name="app_description">Vuforia Books Sample Applications</string>
+    <string name="app_name">OnBoarding</string>
+    <string name="app_description">ThoughtWorks OnBoarding Applications</string>
     <string name="button_start">Start</string>
     <string name="button_OK">OK</string>
     <string name="string_dollar">$</string>
