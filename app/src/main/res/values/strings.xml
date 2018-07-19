@@ -5,14 +5,8 @@
     <string name="app_description">ThoughtWorks OnBoarding Applications</string>
     <string name="button_start">Start</string>
     <string name="button_OK">OK</string>
-    <string name="string_dollar">$</string>
-    <string name="string_openParentheses">(</string>
-    <string name="string_closeParentheses">)</string>
-    <string name="string_ratings">ratings</string>
     <string name="status_bar_scanning">Scanning</string>
-    <string name="book_data_your_price">Your Price</string>
     <string name="content_description_cover">Cover</string>
-    <string name="content_description_strike">Strike</string>
     <string name="content_description_background">Background</string>
     <string name="book_data_touch_for_more">Touch for more information</string>
     <string name="UPDATE_ERROR_AUTHORIZATION_FAILED_TITLE">Authorization Error</string>
@@ -35,8 +29,8 @@
     <string name="UPDATE_ERROR_UNKNOWN_DESC">The service is unavaiable, please try again later.</string>
 
     <string name="splash_screen_description">Vuforia Splash</string>
-    
-    
+
+
     <string name="INIT_ERROR">Error</string>
     <string name="INIT_ERROR_DEVICE_NOT_SUPPORTED">Failed to initialize Vuforia. This device is not supported.</string>
     <string name="INIT_ERROR_NO_CAMERA_ACCESS">Failed to initialize Vuforia. Camera not accessible</string>
