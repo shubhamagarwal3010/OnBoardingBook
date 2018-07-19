@@ -36,7 +36,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 
-// The renderer class for the Books sample.
+// The renderer class for the OnBoardingBook sample.
 public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererControl
 {
     SampleApplicationSession vuforiaAppSession;
@@ -59,13 +59,13 @@ public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererC
     // in OpenGL in the renderFrame thread
     public static final int RS_TEXTURE_GENERATED = 4;
     
-    // Books is active and scanning - Searching for targets.
+    // OnBoardingBook is active and scanning - Searching for targets.
     public static final int RS_SCANNING = 5;
     
     private boolean mIsActive = false;
     
     // Reference to main activity
-    public Books mActivity;
+    public OnBoardingBook mActivity;
     
     private boolean mScanningMode = false;
     
@@ -119,7 +119,7 @@ public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererC
     private Plane mPlane;
     
     
-    public BooksRenderer(Books activity, SampleApplicationSession appSession)
+    public BooksRenderer(OnBoardingBook activity, SampleApplicationSession appSession)
     {
         vuforiaAppSession = appSession;
         mActivity = activity;
@@ -532,7 +532,7 @@ public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererC
 
         }
         
-        SampleUtils.checkGLError("Books renderFrame");
+        SampleUtils.checkGLError("OnBoardingBook renderFrame");
         
     }
     

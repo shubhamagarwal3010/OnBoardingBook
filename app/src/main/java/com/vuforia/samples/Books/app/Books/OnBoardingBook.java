@@ -72,10 +72,10 @@ import java.net.URL;
 import java.net.URLConnection;
 
 
-// The main activity for the Books sample.
-public class Books extends Activity implements SampleApplicationControl
+// The main activity for the OnBoardingBook sample.
+public class OnBoardingBook extends Activity implements SampleApplicationControl
 {
-    private static final String LOGTAG = "Books";
+    private static final String LOGTAG = "OnBoardingBook";
 
     SampleApplicationSession vuforiaAppSession;
 
@@ -247,30 +247,30 @@ public class Books extends Activity implements SampleApplicationControl
      */
     static class StatusBarHandler extends Handler
     {
-        private final WeakReference<Books> mBooks;
+        private final WeakReference<OnBoardingBook> mBook;
 
 
-        StatusBarHandler(Books books)
+        StatusBarHandler(OnBoardingBook onBoardingBook)
         {
-            mBooks = new WeakReference<Books>(books);
+            mBook = new WeakReference<OnBoardingBook>(onBoardingBook);
         }
 
 
         public void handleMessage(Message msg)
         {
-            Books books = mBooks.get();
-            if (books == null)
+            OnBoardingBook onBoardingBook = mBook.get();
+            if (onBoardingBook == null)
             {
                 return;
             }
 
             if (msg.what == SHOW_STATUS_BAR)
             {
-                books.mStatusBar.setText(books.mStatusBarText);
-                books.mStatusBar.setVisibility(View.VISIBLE);
+                onBoardingBook.mStatusBar.setText(onBoardingBook.mStatusBarText);
+                onBoardingBook.mStatusBar.setVisibility(View.VISIBLE);
             } else
             {
-                books.mStatusBar.setVisibility(View.GONE);
+                onBoardingBook.mStatusBar.setVisibility(View.GONE);
             }
         }
     }
@@ -282,31 +282,31 @@ public class Books extends Activity implements SampleApplicationControl
      */
     static class Overlay2dHandler extends Handler
     {
-        private final WeakReference<Books> mBooks;
+        private final WeakReference<OnBoardingBook> mBook;
 
 
-        Overlay2dHandler(Books books)
+        Overlay2dHandler(OnBoardingBook onBoardingBook)
         {
-            mBooks = new WeakReference<Books>(books);
+            mBook = new WeakReference<OnBoardingBook>(onBoardingBook);
         }
 
 
         public void handleMessage(Message msg)
         {
-            Books books = mBooks.get();
-            if (books == null)
+            OnBoardingBook onBoardingBook = mBook.get();
+            if (onBoardingBook == null)
             {
                 return;
             }
 
-            if (books.mCloseButton != null)
+            if (onBoardingBook.mCloseButton != null)
             {
                 if (msg.what == SHOW_2D_OVERLAY)
                 {
-                    books.mCloseButton.setVisibility(View.VISIBLE);
+                    onBoardingBook.mCloseButton.setVisibility(View.VISIBLE);
                 } else
                 {
-                    books.mCloseButton.setVisibility(View.GONE);
+                    onBoardingBook.mCloseButton.setVisibility(View.GONE);
                 }
             }
         }
@@ -469,7 +469,7 @@ public class Books extends Activity implements SampleApplicationControl
         // Inflates the Overlay Layout to be displayed above the Camera View
         LayoutInflater inflater = LayoutInflater.from(this);
         mUILayout = (RelativeLayout) inflater.inflate(
-            R.layout.camera_overlay_books, null, false);
+            R.layout.camera_overlay_book, null, false);
 
         mUILayout.setVisibility(View.VISIBLE);
         mUILayout.setBackgroundColor(Color.BLACK);
@@ -672,12 +672,12 @@ public class Books extends Activity implements SampleApplicationControl
 
                 // Generates an Alert Dialog to show the error message
                 AlertDialog.Builder builder = new AlertDialog.Builder(
-                    Books.this);
+                    OnBoardingBook.this);
                 builder
                     .setMessage(
-                        getStatusDescString(Books.this.mlastErrorCode))
+                        getStatusDescString(OnBoardingBook.this.mlastErrorCode))
                     .setTitle(
-                        getStatusTitleString(Books.this.mlastErrorCode))
+                        getStatusTitleString(OnBoardingBook.this.mlastErrorCode))
                     .setCancelable(false)
                     .setIcon(0)
                     .setPositiveButton(getString(R.string.button_OK),
@@ -843,7 +843,7 @@ public class Books extends Activity implements SampleApplicationControl
             {
                 // Generates a View to display the book data
                 BookOverlayView productView = new BookOverlayView(
-                    Books.this);
+                    OnBoardingBook.this);
 
                 // Updates the view used as a 3d Texture
                 updateProductView(productView, mBookData);
@@ -1262,7 +1262,7 @@ public class Books extends Activity implements SampleApplicationControl
                 
                 // Generates an Alert Dialog to show the error message
                 AlertDialog.Builder builder = new AlertDialog.Builder(
-                    Books.this);
+                    OnBoardingBook.this);
                 builder
                     .setMessage(errorMessage)
                     .setTitle(getString(R.string.INIT_ERROR))

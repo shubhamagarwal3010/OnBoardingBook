@@ -95,7 +95,7 @@
         </activity>
          
         <activity
-            android:name=".app.Books.Books"
+            android:name=".app.Books.OnBoardingBook"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
         	android:theme="@style/SampleAppsTheme"
  	        android:launchMode="singleTask"

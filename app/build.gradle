@@ -14,7 +14,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.vuforia.samples.Books"
+        applicationId "com.vuforia.samples.OnBoardingBook"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 100
