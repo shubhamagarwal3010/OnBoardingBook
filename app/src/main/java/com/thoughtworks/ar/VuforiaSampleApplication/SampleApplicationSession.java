@@ -17,7 +17,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.WindowManager;
 
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.AppHelper;
+import com.thoughtworks.ar.AppHelper;
 import com.vuforia.CameraDevice;
 import com.vuforia.Device;
 import com.vuforia.INIT_ERRORCODE;

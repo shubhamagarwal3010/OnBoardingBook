@@ -12,11 +12,11 @@ package com.thoughtworks.ar.onboarding;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
 
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
 import com.vuforia.Matrix34F;
 import com.vuforia.Matrix44F;
 import com.vuforia.Tool;
 import com.vuforia.Vec4F;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
 
 
 public class Transition3Dto2D {

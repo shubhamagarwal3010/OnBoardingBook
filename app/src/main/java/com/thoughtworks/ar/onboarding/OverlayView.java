@@ -9,8 +9,6 @@ countries.
 
 package com.thoughtworks.ar.onboarding;
 
-import com.thoughtworks.ar.onboarding.R;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.AttributeSet;

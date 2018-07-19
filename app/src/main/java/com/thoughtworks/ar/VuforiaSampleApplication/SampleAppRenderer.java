@@ -16,6 +16,7 @@ import android.opengl.GLES20;
 import android.opengl.Matrix;
 import android.util.Log;
 
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
 import com.thoughtworks.ar.VuforiaSampleApplication.utils.VideoBackgroundShader;
 import com.vuforia.CameraCalibration;
 import com.vuforia.CameraDevice;
@@ -36,7 +37,6 @@ import com.vuforia.Vec4I;
 import com.vuforia.VideoBackgroundConfig;
 import com.vuforia.VideoMode;
 import com.vuforia.ViewList;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
 
 public class SampleAppRenderer {
 

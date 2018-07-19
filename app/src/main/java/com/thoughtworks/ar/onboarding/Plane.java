@@ -9,9 +9,9 @@ countries.
 
 package com.thoughtworks.ar.onboarding;
 
-import java.nio.Buffer;
-
 import com.thoughtworks.ar.VuforiaSampleApplication.utils.MeshObject;
+
+import java.nio.Buffer;
 
 
 class Plane extends MeshObject {

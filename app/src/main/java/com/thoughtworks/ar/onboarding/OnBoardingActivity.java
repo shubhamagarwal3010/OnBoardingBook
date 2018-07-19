@@ -42,6 +42,13 @@ import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.thoughtworks.ar.AppHelper;
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationControl;
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationException;
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationSession;
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.LoadingDialogHandler;
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleApplicationGLView;
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.Texture;
 import com.vuforia.CameraDevice;
 import com.vuforia.ObjectTracker;
 import com.vuforia.State;
@@ -51,19 +58,12 @@ import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
 import com.vuforia.Vuforia;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationControl;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationException;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationSession;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.LoadingDialogHandler;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleApplicationGLView;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.Texture;
-
-import java.io.ByteArrayOutputStream;
 
 import org.json.JSONObject;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
@@ -95,12 +95,12 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
     static final int SHOW_LOADING_DIALOG = 1;
     private static final String LOGTAG = "OnBoardingActivity";
     // Defines the Server URL to get the books data
-    private static final String mServerURL = "https://api.myjson.com/bins/";
+    private static final String mServerURL = AppHelper.mServerURL;
     // Stores the current status of the target ( if is being displayed or not )
     private static final int BOOKINFO_NOT_DISPLAYED = 0;
     private static final int BOOKINFO_IS_DISPLAYED = 1;
-    private static final String kAccessKey = "76c92f6408a276d7ffe717afeda01ab27713c2a9";
-    private static final String kSecretKey = "8613f6d5d9b6870eefbac23831c624306bf21566";
+    private static final String kAccessKey = AppHelper.kAccessKey;
+    private static final String kSecretKey = AppHelper.kSecretKey;
     // size of the Texture to be generated with the book data
     private static int mTextureSize = 768;
     SampleApplicationSession vuforiaAppSession;
@@ -340,7 +340,7 @@ public class OnBoardingActivity extends Activity implements SampleApplicationCon
         // Inflates the Overlay Layout to be displayed above the Camera View
         LayoutInflater inflater = LayoutInflater.from(this);
         mUILayout = (RelativeLayout) inflater.inflate(
-                R.layout.camera_overlay_book, null, false);
+                R.layout.camera_overlay, null, false);
 
         mUILayout.setVisibility(View.VISIBLE);
         mUILayout.setBackgroundColor(Color.BLACK);

@@ -14,6 +14,11 @@ import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
 
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleAppRenderer;
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleAppRendererControl;
+import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationSession;
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
+import com.thoughtworks.ar.VuforiaSampleApplication.utils.Texture;
 import com.vuforia.Device;
 import com.vuforia.Matrix34F;
 import com.vuforia.ObjectTracker;
@@ -24,11 +29,6 @@ import com.vuforia.Tool;
 import com.vuforia.TrackableResult;
 import com.vuforia.TrackerManager;
 import com.vuforia.Vuforia;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleAppRenderer;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleAppRendererControl;
-import com.thoughtworks.ar.VuforiaSampleApplication.SampleApplicationSession;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.SampleUtils;
-import com.thoughtworks.ar.VuforiaSampleApplication.utils.Texture;
 
 import java.util.concurrent.atomic.AtomicInteger;
 

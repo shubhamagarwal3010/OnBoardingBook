@@ -9,15 +9,15 @@ countries.
 
 package com.thoughtworks.ar.VuforiaSampleApplication.utils;
 
-import javax.microedition.khronos.egl.EGL10;
-import javax.microedition.khronos.egl.EGLConfig;
-import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
-
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
+
+import javax.microedition.khronos.egl.EGL10;
+import javax.microedition.khronos.egl.EGLConfig;
+import javax.microedition.khronos.egl.EGLContext;
+import javax.microedition.khronos.egl.EGLDisplay;
 
 // Support class for the Vuforia sample applications
 // Responsible for setting up and configuring the OpenGL surface view.
@@ -112,6 +112,7 @@ public class SampleApplicationGLView extends GLSurfaceView {
         protected int mDepthSize;
         protected int mStencilSize;
         private int[] mValue = new int[1];
+
         public ConfigChooser(int r, int g, int b, int a, int depth, int stencil) {
             mRedSize = r;
             mGreenSize = g;

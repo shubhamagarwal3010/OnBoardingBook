@@ -9,12 +9,12 @@ countries.
 
 package com.thoughtworks.ar.VuforiaSampleApplication.utils;
 
-import java.lang.ref.WeakReference;
-
 import android.app.Activity;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
 
 
 public final class LoadingDialogHandler extends Handler {
