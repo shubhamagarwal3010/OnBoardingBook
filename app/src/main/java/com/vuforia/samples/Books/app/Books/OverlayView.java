@@ -16,26 +16,25 @@ import android.graphics.Bitmap;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-// Custom View with Book Overlay Data
-public class BookOverlayView extends RelativeLayout
+// Custom View with Target Overlay Data
+public class OverlayView extends RelativeLayout
 {
-    public BookOverlayView(Context context)
+    public OverlayView(Context context)
     {
         this(context, null);
     }
     
     
-    public BookOverlayView(Context context, AttributeSet attrs)
+    public OverlayView(Context context, AttributeSet attrs)
     {
         this(context, attrs, 0);
     }
     
     
-    public BookOverlayView(Context context, AttributeSet attrs, int defStyle)
+    public OverlayView(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
         inflateLayout(context);
@@ -54,7 +53,7 @@ public class BookOverlayView extends RelativeLayout
     }
     
     
-    // Sets Book title in View
+    // Sets Target title in View
     public void setBookTitle(String bookTitle)
     {
         TextView tv = (TextView) findViewById(R.id.custom_view_title);
@@ -62,7 +61,7 @@ public class BookOverlayView extends RelativeLayout
     }
 
     
-    // Sets Book Cover in View from a bitmap
+    // Sets Target Cover in View from a bitmap
     public void setCoverViewFromBitmap(Bitmap coverBook)
     {
         ImageView iv = (ImageView) findViewById(R.id.thumbnail);

@@ -13,7 +13,7 @@ import android.graphics.Bitmap;
 
 
 // A support class encapsulating the info for one book
-public class Book
+public class Target
 {
     private String title;
     private String targetId;
@@ -21,7 +21,7 @@ public class Book
     private String bookUrl;
     
     
-    public Book()
+    public Target()
     {
         
     }

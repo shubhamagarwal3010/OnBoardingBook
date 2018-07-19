@@ -115,8 +115,8 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     // Status Bar Text
     private String mStatusBarText;
 
-    // Active Book Data
-    private Book mBookData;
+    // Active Target Data
+    private Target mTargetData;
     private String mBookJSONUrl;
     private Texture mBookDataTexture;
 
@@ -130,7 +130,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     private SampleApplicationGLView mGlView;
 
     // Our renderer:
-    private BooksRenderer mRenderer;
+    private ViewRenderer mRenderer;
 
     private static final String kAccessKey = "76c92f6408a276d7ffe717afeda01ab27713c2a9";
     private static final String kSecretKey = "8613f6d5d9b6870eefbac23831c624306bf21566";
@@ -183,7 +183,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
 
     private void initStateVariables()
     {
-        mRenderer.setRenderState(BooksRenderer.RS_SCANNING);
+        mRenderer.setRenderState(ViewRenderer.RS_SCANNING);
         mRenderer.setProductTexture(null);
 
         mRenderer.setScanningMode(true);
@@ -201,7 +201,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
      */
     public void productTextureIsCreated()
     {
-        mRenderer.setRenderState(BooksRenderer.RS_TEXTURE_GENERATED);
+        mRenderer.setRenderState(ViewRenderer.RS_TEXTURE_GENERATED);
     }
 
 
@@ -546,7 +546,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
         mGlView.init(translucent, depthSize, stencilSize);
 
         // Setups the Renderer of the GLView
-        mRenderer = new BooksRenderer(this, vuforiaAppSession);
+        mRenderer = new ViewRenderer(this, vuforiaAppSession);
         mRenderer.mActivity = this;
         mGlView.setRenderer(mRenderer);
 
@@ -585,15 +585,15 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     }
 
 
-    /** Starts the WebView with the Book Extra Data */
+    /** Starts the WebView with the Target Extra Data */
     public void startWebView(int value)
     {
         // Checks that we have a valid book data
-        if (mBookData != null)
+        if (mTargetData != null)
         {
             // Starts an Intent to open the book URL
             Intent viewIntent = new Intent("android.intent.action.VIEW",
-                Uri.parse(mBookData.getBookUrl()));
+                Uri.parse(mTargetData.getBookUrl()));
 
             startActivity(viewIntent);
         }
@@ -768,7 +768,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
                 if (status != HttpURLConnection.HTTP_OK)
                 {
                     // Cleans book data variables
-                    mBookData = null;
+                    mTargetData = null;
                     mBookInfoStatus = BOOKINFO_NOT_DISPLAYED;
 
                     // Hides loading dialog
@@ -789,20 +789,20 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
                     builder.append(line);
                 }
 
-                // Cleans any old reference to mBookData
-                if (mBookData != null)
+                // Cleans any old reference to mTargetData
+                if (mTargetData != null)
                 {
-                    mBookData = null;
+                    mTargetData = null;
 
                 }
 
                 JSONObject jsonObject = new JSONObject(builder.toString());
 
-                // Generates a new Book Object with the JSON object data
-                mBookData = new Book();
+                // Generates a new Target Object with the JSON object data
+                mTargetData = new Target();
 
-                mBookData.setTitle(jsonObject.getString("title"));
-                mBookData.setBookUrl(jsonObject.getString("bookurl"));
+                mTargetData.setTitle(jsonObject.getString("title"));
+                mTargetData.setBookUrl(jsonObject.getString("bookurl"));
 
                 // Gets the book thumb image
                 byte[] thumb = downloadImage(jsonObject.getString("thumburl"));
@@ -812,7 +812,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
 
                     Bitmap bitmap = BitmapFactory.decodeByteArray(thumb, 0,
                         thumb.length);
-                    mBookData.setThumb(bitmap);
+                    mTargetData.setThumb(bitmap);
                 }
             } catch (Exception e)
             {
@@ -834,14 +834,14 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
 
         protected void onPostExecute(Void result)
         {
-            if (mBookData != null)
+            if (mTargetData != null)
             {
                 // Generates a View to display the book data
-                BookOverlayView productView = new BookOverlayView(
+                OverlayView productView = new OverlayView(
                     OnBoardingBook.this);
 
                 // Updates the view used as a 3d Texture
-                updateProductView(productView, mBookData);
+                updateProductView(productView, mTargetData);
 
                 // Sets the layout params
                 productView.setLayoutParams(new LayoutParams(
@@ -941,18 +941,18 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     }
     
     
-    /** Returns the current Book Data Texture */
+    /** Returns the current Target Data Texture */
     public Texture getProductTexture()
     {
         return mBookDataTexture;
     }
     
     
-    /** Updates a BookOverlayView with the Book data specified in parameters */
-    private void updateProductView(BookOverlayView productView, Book book)
+    /** Updates a BookOverlayView with the Target data specified in parameters */
+    private void updateProductView(OverlayView productView, Target target)
     {
-        productView.setBookTitle(book.getTitle());
-        productView.setCoverViewFromBitmap(book.getThumb());
+        productView.setBookTitle(target.getTitle());
+        productView.setCoverViewFromBitmap(target.getThumb());
     }
     
     
@@ -1007,11 +1007,11 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
         // Updates state variables
         mRenderer.showAnimation3Dto2D(false);
         mRenderer.isShowing2DOverlay(false);
-        mRenderer.setRenderState(BooksRenderer.RS_SCANNING);
+        mRenderer.setRenderState(ViewRenderer.RS_SCANNING);
     }
     
     
-    /** Displays the 2D Book Overlay */
+    /** Displays the 2D Target Overlay */
     public void show2DOverlay()
     {
         // Sends the Message to the Handler in the UI thread
@@ -1019,7 +1019,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     }
     
     
-    /** Hides the 2D Book Overlay */
+    /** Hides the 2D Target Overlay */
     public void hide2DOverlay()
     {
         // Sends the Message to the Handler in the UI thread
@@ -1329,13 +1329,13 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
                             // texture
                             // Cleaning this value indicates that the product
                             // Texture needs to be generated
-                            // again in Java with the new Book data for the new
+                            // again in Java with the new Target data for the new
                             // target
                             mRenderer.deleteCurrentProductTexture();
                             
                             // Starts the loading state for the product
                             mRenderer
-                                .setRenderState(BooksRenderer.RS_LOADING);
+                                .setRenderState(ViewRenderer.RS_LOADING);
                             
                             // Calls the Java method with the current product
                             // texture
@@ -1343,7 +1343,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
                             
                         } else
                             mRenderer
-                                .setRenderState(BooksRenderer.RS_NORMAL);
+                                .setRenderState(ViewRenderer.RS_NORMAL);
                         
                         // Initialize the frames to skip variable, used for
                         // waiting

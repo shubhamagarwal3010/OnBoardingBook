@@ -37,12 +37,12 @@ import javax.microedition.khronos.opengles.GL10;
 
 
 // The renderer class for the OnBoardingBook sample.
-public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererControl
+public class ViewRenderer implements GLSurfaceView.Renderer, SampleAppRendererControl
 {
     SampleApplicationSession vuforiaAppSession;
     SampleAppRenderer mSampleAppRenderer;
 
-    // Texture is Generated and Target is Acquired - Rendering Book Data
+    // Texture is Generated and Target is Acquired - Rendering Target Data
     public static final int RS_NORMAL = 0;
     
     // Target has been lost - Rendering transition to 2D Overlay
@@ -119,7 +119,7 @@ public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererC
     private Plane mPlane;
     
     
-    public BooksRenderer(OnBoardingBook activity, SampleApplicationSession appSession)
+    public ViewRenderer(OnBoardingBook activity, SampleApplicationSession appSession)
     {
         vuforiaAppSession = appSession;
         mActivity = activity;
@@ -313,7 +313,7 @@ public class BooksRenderer implements GLSurfaceView.Renderer, SampleAppRendererC
             modelViewMatrix = Tool.convertPose2GLMatrix(
                 trackableResult.getPose()).getData();
             
-            // Renders the Augmentation View with the 3D Book data Panel
+            // Renders the Augmentation View with the 3D Target data Panel
             renderAugmentation(trackableResult, projectionMatrix);
             
         } else
