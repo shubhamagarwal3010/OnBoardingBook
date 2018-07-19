@@ -80,7 +80,7 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     SampleApplicationSession vuforiaAppSession;
 
     // Defines the Server URL to get the books data
-    private static final String mServerURL = "https://developer.vuforia.com/samples/cloudreco/json/";
+    private static final String mServerURL = "https://api.myjson.com/bins/";
 
     // Stores the current status of the target ( if is being displayed or not )
     private static final int BOOKINFO_NOT_DISPLAYED = 0;
@@ -132,8 +132,8 @@ public class OnBoardingBook extends Activity implements SampleApplicationControl
     // Our renderer:
     private BooksRenderer mRenderer;
 
-    private static final String kAccessKey = "b3b58819edccca17755cfcae95ea0f40c0eaa0da";
-    private static final String kSecretKey = "4f2358936188b461ad608e50a82c1593d55cfeb0";
+    private static final String kAccessKey = "76c92f6408a276d7ffe717afeda01ab27713c2a9";
+    private static final String kSecretKey = "8613f6d5d9b6870eefbac23831c624306bf21566";
 
     // View overlays to be displayed in the Augmented View
     private RelativeLayout mUILayout;
